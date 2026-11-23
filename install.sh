@@ -31,9 +31,11 @@ head, tail = text[:end], text[end:]
 body = "\n".join(l for l in head.splitlines() if not l.strip().startswith("//"))
 last = body.rstrip()[-1:] if body.strip() else "{"
 comma = "" if last in "{," else ","
-entry = (f'{comma}\n  "doahacking": {{"icon": "", "label": "Do A Hacking", '
+# the tag goes on its own line: the menu validator rejects inline // comments
+entry = (f'{comma}\n  // {tag}\n'
+         f'  "doahacking": {{"icon": "", "label": "Do A Hacking", '
          f'"description": "I\'m a hacker, mommy!", '
-         f'"action": "omarchy-launch-or-focus-tui {binpath}"}}  // {tag}\n')
+         f'"action": "omarchy-launch-or-focus-tui {binpath}"}}\n')
 open(path, "w", encoding="utf-8").write(head.rstrip("\n") + entry + tail)
 print("  menu       added 'Do A Hacking' to the Omarchy menu")
 PY
