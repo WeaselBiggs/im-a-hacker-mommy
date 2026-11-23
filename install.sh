@@ -33,11 +33,11 @@ last = body.rstrip()[-1:] if body.strip() else "{"
 comma = "" if last in "{," else ","
 # the tag goes on its own line: the menu validator rejects inline // comments
 entry = (f'{comma}\n  // {tag}\n'
-         f'  "doahacking": {{"icon": "", "label": "Do A Hacking", '
+         f'  "trigger.doahacking": {{"icon": "", "label": "Do A Hacking", '
          f'"description": "I\'m a hacker, mommy!", '
          f'"action": "omarchy-launch-or-focus-tui {binpath}"}}\n')
 open(path, "w", encoding="utf-8").write(head.rstrip("\n") + entry + tail)
-print("  menu       added 'Do A Hacking' to the Omarchy menu")
+print("  menu       added 'Do A Hacking' to the Omarchy menu, under Trigger")
 PY
 
 # 3. keybind
@@ -61,5 +61,5 @@ if hyprctl configerrors 2>/dev/null | grep -q .; then
   exit 1
 fi
 echo
-echo "  installed. press $KEY, or find 'Do A Hacking' in the Omarchy menu."
+echo "  installed. press $KEY, or find 'Do A Hacking' under Trigger in the Omarchy menu."
 echo "  tell her you're a hacker now."

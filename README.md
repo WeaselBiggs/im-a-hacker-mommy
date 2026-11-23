@@ -18,7 +18,7 @@ git clone https://github.com/WeaselBiggs/im-a-hacker-mommy.git ~/.local/share/im
 That does three things:
 
 - links the script to `~/.local/bin/do-a-hacking`
-- adds **Do A Hacking** to the Omarchy menu (`~/.config/omarchy/extensions/omarchy-menu.jsonc`)
+- adds **Do A Hacking** to the Omarchy menu, under **Trigger** (`~/.config/omarchy/extensions/omarchy-menu.jsonc`)
 - binds **SUPER + SHIFT + H** in `~/.config/hypr/bindings.lua`
 
 Want a different key? `HACKING_KEY="SUPER + ALT + H" ./install.sh`.
